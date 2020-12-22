@@ -26,6 +26,7 @@ After making such test connection the app appears in the `Settings -> Privacy ->
 In iOS 14.**2+** we can understand if there is no permission by performing a check `if case .localNetworkDenied? = connection.currentPath?.unsatisfiedReason`.
 6. Sometimes recieving UDP broadcast messages works even with permission beign unchecked. Couldn't figure out the steps to replicate though.
 7. The testing should be performed on real iOS devices. It works different in Simulator.
+8. CocoaAsyncSocket consumes much less CPU than Network framework when listening to UDP messages. ~1% vs ~5% - tested on iOS 13.
 
 ### Other notes
 There are messages on Apple developer forum stating that apps should [request](https://developer.apple.com/contact/request/networking-multicast) 
