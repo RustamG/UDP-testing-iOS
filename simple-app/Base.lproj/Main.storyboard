@@ -1,24 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="93K-hX-OGD">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--CocoaAsyncSocket-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UdpViewController" id="BYZ-38-t0r" customClass="UdpViewController" customModule="simple_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GUF-AO-0wa">
+                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUX-Ji-oSf">
+                                <rect key="frame" x="88" y="64" width="31" height="30"/>
+                                <state key="normal" title="Ping"/>
+                                <connections>
+                                    <action selector="pingClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZGA-ik-gIe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6g-Vm-AKD">
+                                <rect key="frame" x="293.5" y="64" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startStopClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sax-sZ-fH3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbj-PC-ffW">
+                                <rect key="frame" x="176.5" y="64" width="61" height="30"/>
+                                <state key="normal" title="Clear log"/>
+                                <connections>
+                                    <action selector="clearClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1pD-Mj-vq3"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GUF-AO-0wa" secondAttribute="trailing" id="598-IW-ZDn"/>
+                            <constraint firstItem="UUX-Ji-oSf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="887-KL-yhR"/>
+                            <constraint firstItem="GUF-AO-0wa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M5q-cT-Aet"/>
+                            <constraint firstItem="GUF-AO-0wa" firstAttribute="top" secondItem="dbj-PC-ffW" secondAttribute="bottom" constant="20" id="PIZ-7r-w7b"/>
+                            <constraint firstItem="N6g-Vm-AKD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="1.5" id="Rfh-td-X1W"/>
+                            <constraint firstItem="dbj-PC-ffW" firstAttribute="firstBaseline" secondItem="UUX-Ji-oSf" secondAttribute="firstBaseline" id="Sel-EI-bFP"/>
+                            <constraint firstItem="N6g-Vm-AKD" firstAttribute="firstBaseline" secondItem="UUX-Ji-oSf" secondAttribute="firstBaseline" id="Y7k-fD-sfi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GUF-AO-0wa" secondAttribute="bottom" id="cBI-By-5uU"/>
+                            <constraint firstItem="UUX-Ji-oSf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="0.5" id="ftZ-zU-E2U"/>
+                            <constraint firstItem="dbj-PC-ffW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="shR-Tv-eUf"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="CocoaAsyncSocket" id="kp8-xL-J5n"/>
+                    <connections>
+                        <outlet property="pingButton" destination="UUX-Ji-oSf" id="9vW-wJ-tZX"/>
+                        <outlet property="startStopButton" destination="N6g-Vm-AKD" id="p8j-Hl-qXa"/>
+                        <outlet property="textView" destination="GUF-AO-0wa" id="H25-NE-4e8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1013" y="61"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="jt9-Do-ErD">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="93K-hX-OGD" customClass="TabBarController" customModule="simple_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xAW-Qh-nqH">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B6y-Ve-GJ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4.3478260869565224" y="60.9375"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
